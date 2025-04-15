@@ -1,6 +1,6 @@
 # PRODIGY_CS_02
 
-# 🛡️ Image Encryption Tool
+# 🛡️ Image Encryptor
 
 ## 🔒 Secure & Protect Your Images Using Pixel Manipulation
 The **Image Encryption Tool** is a powerful, user-friendly application designed to **encrypt and decrypt images** effortlessly. Built with **Python and Tkinter**, this tool ensures your sensitive images remain safe from unauthorized access.
@@ -20,7 +20,7 @@ The **Image Encryption Tool** is a powerful, user-friendly application designed 
 ### 1️⃣ Clone the Repository  
 ```sh
  git clone https://github.com/MuhdSulthan/PRODIGY_CS_02.git
- cd Image-Encryption-Tool
+ cd image_encryptor
 ```
 ### 2️⃣ Install Dependencies  
 ```sh
