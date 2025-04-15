@@ -20,7 +20,6 @@
  ### 1️⃣ Clone the Repository  
  ```sh
   git clone https://github.com/MuhdSulthan/PRODIGY_CS_02.git
-  cd image_encryptor
   cd PRODIGY_CS_02
  ```
  ### 2️⃣ Install Dependencies  
