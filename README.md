@@ -1,8 +1,7 @@
-# PRODIGY_CS_02
+# PRODIGY_CS_04
 
 # 🛡️ KeyLogger
 
-## 🔒 Secure & Protect Your Images Using Pixel Manipulation
 The **Keylogger** is a simple application designed to track typed keys effortlessly via  the Dependency keyboard and create a log file to save the tracked keys
 . Built with **Keyboard**, this tool is for educational and study purpose.
 
