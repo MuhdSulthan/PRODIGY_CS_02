@@ -45,11 +45,7 @@ class ImageEncryptionApp:
         method_frame.grid(row=0, column=0, sticky="w", padx=10, pady=5)
 
         # Encryption method selection
-        ttk.Label(method_frame, text="Encryption Method:").grid(row=0,
-                                                                column=0,
-                                                                sticky="w",
-                                                                padx=5,
-                                                                pady=5)
+        ttk.Label(method_frame, text="Encryption Method:").grid(row=0, column=0, sticky="w", padx=5, pady=5)
         self.encryption_method = tk.StringVar()
         self.encryption_method.set("add")  # Default method
 
@@ -57,30 +53,17 @@ class ImageEncryptionApp:
         methods_frame = ttk.Frame(method_frame)
         methods_frame.grid(row=0, column=1, sticky="w")
 
-        self.add_radio = ttk.Radiobutton(methods_frame,
-                                         text="Add Key",
-                                         variable=self.encryption_method,
-                                         value="add")
+        self.add_radio = ttk.Radiobutton(methods_frame, text="Add Key", variable=self.encryption_method, value="add")
         self.add_radio.pack(side="left", padx=5)
 
-        self.xor_radio = ttk.Radiobutton(methods_frame,
-                                         text="XOR Key",
-                                         variable=self.encryption_method,
-                                         value="xor")
+        self.xor_radio = ttk.Radiobutton(methods_frame, text="XOR Key", variable=self.encryption_method, value="xor")
         self.xor_radio.pack(side="left", padx=5)
 
-        self.swap_radio = ttk.Radiobutton(methods_frame,
-                                          text="Swap Channels",
-                                          variable=self.encryption_method,
-                                          value="swap")
+        self.swap_radio = ttk.Radiobutton(methods_frame, text="Swap Channels", variable=self.encryption_method, value="swap")
         self.swap_radio.pack(side="left", padx=5)
 
         # Encryption key
-        ttk.Label(method_frame, text="Encryption Key:").grid(row=1,
-                                                             column=0,
-                                                             sticky="w",
-                                                             padx=5,
-                                                             pady=5)
+        ttk.Label(method_frame, text="Encryption Key:").grid(row=1, column=0,  sticky="w", padx=5, pady=5)
         key_frame = ttk.Frame(method_frame)
         key_frame.grid(row=1, column=1, sticky="w")
 
@@ -93,41 +76,26 @@ class ImageEncryptionApp:
         button_frame.grid(row=0, column=1, sticky="e", padx=10, pady=5)
 
         # Load image button
-        self.load_button = ttk.Button(button_frame,
-                                      text="Load Image",
-                                      command=self.load_image,
-                                      width=15)
+        self.load_button = ttk.Button(button_frame, text="Load Image", command=self.load_image, width=15)
         self.load_button.grid(row=0, column=0, padx=5, pady=5)
 
         # Encrypt image button
-        self.encrypt_button = ttk.Button(button_frame,
-                                         text="Encrypt Image",
-                                         command=self.encrypt_image,
-                                         width=15)
+        self.encrypt_button = ttk.Button(button_frame, text="Encrypt Image", command=self.encrypt_image, width=15)
         self.encrypt_button.grid(row=0, column=1, padx=5, pady=5)
         self.encrypt_button.config(state="disabled")
 
         # Decrypt image button
-        self.decrypt_button = ttk.Button(button_frame,
-                                         text="Decrypt Image",
-                                         command=self.decrypt_image,
-                                         width=15)
+        self.decrypt_button = ttk.Button(button_frame, text="Decrypt Image", command=self.decrypt_image, width=15)
         self.decrypt_button.grid(row=0, column=2, padx=5, pady=5)
         self.decrypt_button.config(state="disabled")
 
         # Save image button
-        self.save_button = ttk.Button(button_frame,
-                                      text="Save Image",
-                                      command=self.save_image,
-                                      width=15)
+        self.save_button = ttk.Button(button_frame, text="Save Image", command=self.save_image, width=15)
         self.save_button.grid(row=1, column=1, padx=5, pady=5)
         self.save_button.config(state="disabled")
 
         # Reset button
-        self.reset_button = ttk.Button(button_frame,
-                                       text="Reset to Original",
-                                       command=self.reset_to_original,
-                                       width=15)
+        self.reset_button = ttk.Button(button_frame, text="Reset to Original", command=self.reset_to_original, width=15)
         self.reset_button.grid(row=1, column=0, padx=5, pady=5)
         self.reset_button.config(state="disabled")
 
@@ -167,10 +135,7 @@ class ImageEncryptionApp:
         - Save the result using the 'Save Image' button
         """
 
-        info_label = ttk.Label(info_frame,
-                               text=info_text,
-                               wraplength=760,
-                               justify="left")
+        info_label = ttk.Label(info_frame, text=info_text, wraplength=760, justify="left")
         info_label.pack(padx=10, pady=10)
 
     def load_image(self):
@@ -298,8 +263,7 @@ class ImageEncryptionApp:
                     if key < 1 or key > 255:
                         raise ValueError("Key must be between 1 and 255")
                 except ValueError as e:
-                    messagebox.showerror("Error",
-                                         f"Invalid key value: {str(e)}")
+                    messagebox.showerror("Error", f"Invalid key value: {str(e)}")
                     return
 
             # Create a copy of the image for decryption
@@ -333,17 +297,13 @@ class ImageEncryptionApp:
                         new_r = b
                         new_g = r
                         new_b = g
-
                     # Update pixel with new values
                     pixels[x, y] = (new_r, new_g, new_b)
-
             # Store processed image as current image and encrypted image
             self.encrypted_image = img
             self.image = img.copy()
-
             # Display decrypted image
             self.display_preview(img)
-
             # Update status and buttons
             self.set_status(f"Image decrypted using {method.upper()} method!")
             self.save_button.config(state="normal")
@@ -399,14 +359,11 @@ class ImageEncryptionApp:
                 new_width = int(max_height * aspect_ratio)
         else:
             new_width, new_height = img_width, img_height
-
         # Create a resized copy for display
         preview = image.copy()
         preview.thumbnail((new_width, new_height))
-
         # Convert to PhotoImage for Tkinter
         photo = ImageTk.PhotoImage(preview)
-
         # Update image label
         self.display_image = photo  # Keep reference to prevent garbage collection
         self.image_label.config(image=photo)
@@ -416,13 +373,10 @@ class ImageEncryptionApp:
         if self.original_image is None:
             messagebox.showwarning("Warning", "No original image available")
             return
-
         # Reset current image to original
         self.image = self.original_image.copy()
-
         # Display original image
         self.display_preview(self.image)
-
         # Update status
         self.set_status("Image reset to original state")
 
@@ -430,14 +384,11 @@ class ImageEncryptionApp:
         """Set the status label with the given status"""
         self.status_label.configure(text=f"Status: {status}")
 
-
 def main():
     """Main function to run the application"""
     root = tk.Tk()
     app = ImageEncryptionApp(root)
     root.mainloop()
 
-
 if __name__ == "__main__":
     main()
-
