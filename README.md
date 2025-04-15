@@ -35,4 +35,4 @@ The **Image Encryption Tool** is a powerful, user-friendly application designed 
 
 ## 📸 Preview
 🔹 **Application**  
-![WalkThrough](./path_to_ssImage_Encryptor.png) 
+![WalkThrough](ssImage_Encryptor.png) 
